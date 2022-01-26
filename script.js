@@ -4,7 +4,6 @@ const minsElement = document.getElementById("minutes");
 const secondsElement = document.getElementById("seconds");
 
 const newYears = [
-  "00:22 27 Jan 2022",
   "1 Feb 2022",
   "22 Jan 2023",
   "10 Feb 2024",
