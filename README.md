@@ -45,7 +45,7 @@ Through this project, I learn to use the `grid` to get all the value of days, ho
 
 I also learn how to use the javascript to control the element by using the `document.selectElementbyID`.
 
-```javascript
+```js
 const daysElement = document.getElementById("days");
 const hoursElement = document.getElementById("hours");
 const minsElement = document.getElementById("minutes");
