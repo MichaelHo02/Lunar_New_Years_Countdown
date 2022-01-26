@@ -4,20 +4,39 @@ const minsElement = document.getElementById("minutes");
 const secondsElement = document.getElementById("seconds");
 
 const newYears = [
-  "1 Feb 2022", "22 Jan 2023", "10 Feb 2024",
-  "29 Jan 2025", "17 Feb 2026", "6 Feb 2027",
-  "26 Jan 2028", "13 Feb 2029", "3 Feb 2030",
-  "23 Jan 2031", "11 Feb 2032", "31 Jan 2033"
+  "00:22 27 Jan 2022",
+  "1 Feb 2022",
+  "22 Jan 2023",
+  "10 Feb 2024",
+  "29 Jan 2025",
+  "17 Feb 2026",
+  "6 Feb 2027",
+  "26 Jan 2028",
+  "13 Feb 2029",
+  "3 Feb 2030",
+  "23 Jan 2031",
+  "11 Feb 2032",
+  "31 Jan 2033",
 ];
 
 index = 0;
 
 function countdown() {
-  const newYearsDate = new Date(newYears[index]);
-  const currentDate = new Date();
-
-  if (currentDate > newYearsDate) {
-    index += 1;
+  newYearsDate = null;
+  currentDate = null;
+  while (true) {
+    newYearsDate = new Date(newYears[index]);
+    currentDate = new Date();
+    // console.log(currentDate);
+    // console.log(newYearsDate);
+    if (currentDate.getDate() > newYearsDate.getDate()) {
+      index += 1;
+    } else if (currentDate.getDate() == newYearsDate.getDate()) {
+      newYearsDate = currentDate;
+      break;
+    } else {
+      break;
+    }
   }
 
   seconds = (newYearsDate - currentDate) / 1000;
@@ -35,7 +54,8 @@ function countdown() {
 }
 
 function formatTime(time) {
-    return time < 10 ? (`0${time}`) : time;
+  if (time < 0) return 0;
+  return time < 10 ? `0${time}` : time;
 }
 
 countdown();
