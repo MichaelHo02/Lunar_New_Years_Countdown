@@ -16,7 +16,7 @@
 ### Screenshot
 
 ![](./screenshots/desktop.png)
-![](./screenshots/mobile.png)
+<!-- ![](./screenshots/mobile.png) -->
 
 ### Links
 
