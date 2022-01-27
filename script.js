@@ -18,6 +18,7 @@ const newYears = [
   "31 Jan 2033",
 ];
 
+once = true;
 index = 0;
 
 function countdown() {
@@ -26,12 +27,17 @@ function countdown() {
   while (true) {
     newYearsDate = new Date(newYears[index]);
     currentDate = new Date();
-    // console.log(currentDate);
-    // console.log(newYearsDate);
-    if (currentDate.getDate() > newYearsDate.getDate()) {
+
+    if (currentDate.getTime() > newYearsDate.getTime()) {
       index += 1;
-    } else if (currentDate.getDate() == newYearsDate.getDate()) {
+      once = true;
+    } else if (currentDate.toDateString() === newYearsDate.toDateString()) {
       newYearsDate = currentDate;
+      if (once)  {
+        let audio = new Audio("/music/HappyNewYear-ABBA-1595921.mp3");
+        audio.play();
+        once = false;
+      }
       break;
     } else {
       break;
